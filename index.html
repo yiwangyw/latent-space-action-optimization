@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Project page for Latent-Space Action Optimization under Implicit Constraints for Robotic Manipulation.">
+  <meta name="keywords" content="robot manipulation, latent-space optimization, CVAE, constrained planning, imitation learning, IROS 2026">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Latent-Space Action Optimization under Implicit Constraints for Robotic Manipulation</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="container is-max-desktop">
+    <div class="navbar-brand">
+      <a class="navbar-item brand-mark" href="#top" aria-label="Project page home">LSAO</a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="project-nav">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div id="project-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#abstract">Abstract</a>
+        <a class="navbar-item" href="#method">Method</a>
+        <a class="navbar-item" href="#experiments">Experiments</a>
+        <a class="navbar-item" href="#BibTeX">BibTeX</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+  <section class="hero publication-header">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <p class="venue-label">IROS 2026</p>
+            <h1 class="title publication-title">Latent-Space Action Optimization under Implicit Constraints for Robotic Manipulation</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><a href="mailto:yiw1022@g.ecc.u-tokyo.ac.jp">Yi Wang</a><sup>1</sup>,</span>
+              <span class="author-block"><a href="mailto:k.ayusawa@aist.go.jp">Ko Ayusawa</a><sup>2</sup>,</span>
+              <span class="author-block"><a href="mailto:venture@g.ecc.u-tokyo.ac.jp">Gentiane Venture</a><sup>1</sup>,</span>
+              <span class="author-block"><a href="mailto:eiichi.yoshida@rs.tus.ac.jp">Eiichi Yoshida</a><sup>3</sup></span>
+            </div>
+
+            <div class="publication-affiliations">
+              <span class="author-block"><sup>1</sup>The University of Tokyo</span>
+              <span class="author-block"><sup>2</sup>AIST</span>
+              <span class="author-block"><sup>3</sup>Tokyo University of Science</span>
+            </div>
+
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="./static/pdfs/paper.pdf" class="external-link button is-normal is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#video" class="external-link button is-normal is-dark">
+                  <span class="icon"><i class="fas fa-video"></i></span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#BibTeX" class="external-link button is-normal is-dark">
+                  <span class="icon"><i class="fas fa-quote-right"></i></span>
+                  <span>BibTeX</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser" id="video">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <video id="teaser" autoplay muted loop playsinline controls preload="metadata">
+          <source src="./static/videos/teaser.mp4" type="video/mp4">
+        </video>
+        <h2 class="subtitle has-text-centered">
+          We optimize a compact latent code through a frozen, differentiable trajectory decoder to satisfy new task objectives while preserving feasibility learned from demonstrations.
+        </h2>
+        <p class="media-note has-text-centered">Temporary media retained from the source template.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section abstract-section" id="abstract">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Robot manipulation tasks can often be formulated as constrained optimization problems, where feasibility constraints arise from dynamics, object contacts, and kinematic requirements. Effectively formulating these implicit and hybrid constraints for real-world tasks, however, remains challenging.
+            </p>
+            <p>
+              We propose a data-driven reparameterization approach that enables optimization-based motion planning without explicit constraint specification. Given feasible demonstrations, we train a Transformer-based conditional variational autoencoder whose decoder maps latent vectors to feasible actions consistent with the current visual observation. Planning is then performed by optimizing the latent variable for an additional user-specified objective using standard gradient-based optimizers. A prior-aware penalty keeps optimization consistent with the learned latent distribution and restricts the search to data-driven action constraints.
+            </p>
+            <p>
+              Experiments on a real-world, contact-rich block assembly task show that the learned decoder preserves feasibility at rates of at least 97% across all phases. Latent-space optimization also improves motion quality, reducing insertion-phase jerk by 14.61% and acceleration by 10.84% compared with unoptimized latent sampling.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section method-section" id="method">
+    <div class="container is-max-desktop">
+      <div class="has-text-centered section-heading">
+        <p class="eyebrow">Approach</p>
+        <h2 class="title is-3">Learn feasibility, then optimize intent</h2>
+      </div>
+      <figure class="publication-figure wide-figure">
+        <img src="./static/images/method.png" alt="Overview of Transformer-CVAE training and latent-space optimization inference.">
+        <figcaption>
+          During training, the conditional VAE learns feasible action horizons from demonstrations and observations. At inference, its frozen decoder acts as a differentiable reparameterization map for plug-and-play objectives.
+        </figcaption>
+      </figure>
+
+      <div class="columns contribution-columns">
+        <div class="column">
+          <p class="contribution-number">01</p>
+          <h3 class="title is-5">Implicit constraints</h3>
+          <p>A Transformer-CVAE represents phase-dependent feasibility directly from expert demonstrations, without explicit geometric or contact models.</p>
+        </div>
+        <div class="column">
+          <p class="contribution-number">02</p>
+          <h3 class="title is-5">Latent planning</h3>
+          <p>The decoder maps a 32-dimensional latent variable to a 60-step, 6-DoF action horizon, replacing 360 raw action variables with a compact search space.</p>
+        </div>
+        <div class="column">
+          <p class="contribution-number">03</p>
+          <h3 class="title is-5">Robust execution</h3>
+          <p>Receding-horizon control, visual conditioning, warm starts, and a prior-aware penalty preserve feasibility under disturbances and test-time optimization.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section task-section" id="experiments">
+    <div class="container is-max-desktop">
+      <div class="columns is-vcentered">
+        <div class="column is-7">
+          <figure class="publication-figure">
+            <img src="./static/images/task-phases.png" alt="Four phases of the block-building manipulation task.">
+            <figcaption>Approach and grasp, transport, insertion and release, then leave without disturbing the structure.</figcaption>
+          </figure>
+        </div>
+        <div class="column is-5 task-copy">
+          <p class="eyebrow">Real-world evaluation</p>
+          <h2 class="title is-3">Contact-rich block assembly</h2>
+          <div class="content">
+            <p>The robot aligns two arch-shaped blocks to form a circle while keeping two side blocks stable. Each phase imposes distinct collision, pose, contact, and motion constraints.</p>
+            <p>The study uses a 6-DoF LeRobot SO101 arm, a two-finger gripper, two RGB cameras, and 84 feasible demonstrations collected at 30 Hz.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns setup-row is-vcentered">
+        <div class="column is-6">
+          <img class="setup-image" src="./static/images/robot-setup.png" alt="Robot and dual-camera hardware setup.">
+        </div>
+        <div class="column is-6">
+          <img class="setup-image" src="./static/images/task-scene.png" alt="Block assembly task scene from the front camera.">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section results-section">
+    <div class="container is-max-desktop">
+      <div class="has-text-centered section-heading">
+        <p class="eyebrow">Results</p>
+        <h2 class="title is-3">Feasibility is preserved while motion improves</h2>
+      </div>
+
+      <div class="columns metric-row has-text-centered is-mobile is-multiline">
+        <div class="column is-half-mobile">
+          <p class="metric-value">99.3%</p>
+          <p class="metric-label">Approach</p>
+        </div>
+        <div class="column is-half-mobile">
+          <p class="metric-value">99.3%</p>
+          <p class="metric-label">Grasp</p>
+        </div>
+        <div class="column is-half-mobile">
+          <p class="metric-value">97.6%</p>
+          <p class="metric-label">Transport</p>
+        </div>
+        <div class="column is-half-mobile">
+          <p class="metric-value">97.0%</p>
+          <p class="metric-label">Insertion</p>
+        </div>
+      </div>
+
+      <div class="columns findings-row">
+        <div class="column is-5">
+          <div class="finding">
+            <p class="finding-value">14.61%</p>
+            <h3 class="title is-5">Lower insertion jerk</h3>
+            <p>Latent optimization suppresses spikes and oscillations in the most contact-sensitive phase.</p>
+          </div>
+          <div class="finding">
+            <p class="finding-value">10.84%</p>
+            <h3 class="title is-5">Lower acceleration</h3>
+            <p>The smoothness objective improves execution quality while decoded actions remain on the learned feasible manifold.</p>
+          </div>
+        </div>
+        <div class="column is-7">
+          <figure class="publication-figure result-figure">
+            <img src="./static/images/jerk-sensitivity.png" alt="Jerk reduction ratio as the jerk objective weight increases.">
+            <figcaption>Increasing the jerk weight consistently raises the fraction of objective-driven descent updates before the improvement saturates.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-light is-small video-gallery" aria-label="Video gallery">
+    <div class="hero-body">
+      <div class="container">
+        <div class="has-text-centered section-heading compact-heading">
+          <h2 class="title is-3">Video Gallery</h2>
+          <p class="media-note">Temporary media retained from the Nerfies template for later replacement.</p>
+        </div>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item"><video autoplay controls muted loop playsinline preload="metadata"><source src="./static/videos/steve.mp4" type="video/mp4"></video></div>
+          <div class="item"><video autoplay controls muted loop playsinline preload="metadata"><source src="./static/videos/chair-tp.mp4" type="video/mp4"></video></div>
+          <div class="item"><video autoplay controls muted loop playsinline preload="metadata"><source src="./static/videos/shiba.mp4" type="video/mp4"></video></div>
+          <div class="item"><video autoplay controls muted loop playsinline preload="metadata"><source src="./static/videos/fullbody.mp4" type="video/mp4"></video></div>
+          <div class="item"><video autoplay controls muted loop playsinline preload="metadata"><source src="./static/videos/blueshirt.mp4" type="video/mp4"></video></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title is-3">BibTeX</h2>
+      <pre><code>@inproceedings{wang2026latent,
+  author    = {Wang, Yi and Ayusawa, Ko and Venture, Gentiane and Yoshida, Eiichi},
+  title     = {Latent-Space Action Optimization under Implicit Constraints for Robotic Manipulation},
+  booktitle = {2026 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  year      = {2026}
+}</code></pre>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content has-text-centered">
+          <p>
+            Website template adapted from <a href="https://nerfies.github.io/">Nerfies</a> and released under the
+            <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
