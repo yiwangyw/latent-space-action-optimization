@@ -35,7 +35,7 @@ The Experiments section starts with **Real-world evaluation / Contact-rich block
 - Square block: `bad_square.mp4` and `nice_square.mp4`.
 - Square block EE trajectories: `bad_square_blocking_ee_down.gif` and `nice_square_blocking_ee_down.gif`. These animations show the top-down XY trajectories during the downward placement phase, beneath the corresponding rollout comparisons.
 
-Each group has shared play/pause and replay buttons, along with individual video controls. Videos retain their original aspect ratios and playback speeds. The two comparison columns stay side by side on small screens; the block close-up moves above them. The header's Video link jumps to these comparisons.
+Each group has shared play/pause and replay buttons, along with individual video controls. Videos retain their original aspect ratios and playback speeds. The two comparison columns stay side by side on small screens. All three block views also stay in one row; on narrow screens, swipe horizontally within the block comparison to see all views at a readable size. This region can also be focused and scrolled with the keyboard. The header's Video link jumps to these comparisons.
 
 To replace a video, keep its filename or update the corresponding `<source>` path in `index.html`. The EE trajectory GIFs play automatically and independently of the rollout video controls. Legacy template media are not displayed.
 

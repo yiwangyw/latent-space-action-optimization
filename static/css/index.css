@@ -236,6 +236,15 @@ a {
   grid-template-columns: 1.5fr 1fr 1fr;
 }
 
+.block-comparison:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 4px;
+}
+
+.comparison-scroll-hint {
+  display: none;
+}
+
 .comparison-item {
   min-width: 0;
 }
@@ -493,13 +502,17 @@ a {
   }
 
   .block-comparison {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(240px, 1.5fr) repeat(2, minmax(160px, 1fr));
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    padding-bottom: 0.75rem;
   }
 
-  .detail-item {
-    grid-column: 1 / -1;
-    width: min(100%, 520px);
-    margin: 0 auto 0.5rem;
+  .comparison-scroll-hint {
+    display: block;
+    margin-top: 0.65rem;
+    color: var(--muted);
+    font-size: 0.8rem;
   }
 
   .focus-marker::before {

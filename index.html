@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet" href="./static/css/index.css?v=82a3b3463797">
+  <link rel="stylesheet" href="./static/css/index.css?v=95696888adc0">
   <link rel="icon" href="./static/images/favicon.svg">
 
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -185,7 +185,7 @@
             <button class="button is-small comparison-replay" type="button" aria-label="Replay block assembly comparison">Replay</button>
           </div>
         </div>
-        <div class="comparison-grid block-comparison">
+        <div class="comparison-grid block-comparison" role="region" aria-label="Block assembly video comparison" tabindex="0">
           <figure class="comparison-item detail-item">
             <figcaption class="comparison-label detail-label">Random sampling · close-up</figcaption>
             <div class="comparison-media">
@@ -212,6 +212,7 @@
             </div>
           </figure>
         </div>
+        <p class="comparison-scroll-hint">Swipe left or right to compare the three views.</p>
         <p class="comparison-caption">The close-up highlights the contact region in the random-sampling rollout.</p>
         <p class="comparison-status" role="status" hidden></p>
       </article>
