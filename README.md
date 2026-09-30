@@ -33,11 +33,11 @@ The Experiments section starts with **Real-world evaluation / Contact-rich block
 - Block assembly: `bad_block.mp4` and `nice_block.mp4`, with `bad_block_withbigsize.mp4` as the random-sampling close-up.
 - Peg-in-hole: `bad_peg_in_hole.mp4` and `nice_peg_in_hole.mp4`.
 - Square block: `bad_square.mp4` and `nice_square.mp4`.
-- Square block EE trajectories: `bad_square_blocking_ee_down.gif` and `nice_square_blocking_ee_down.gif`. These animations show the top-down XY trajectories during the downward placement phase, beneath the corresponding rollout comparisons.
+- Square block EE trajectories: `bad_square_blocking_ee_down.mp4` and `nice_square_blocking_ee_down.mp4`. These videos show the top-down XY trajectories during the downward placement phase, beneath the corresponding rollout comparisons. They are converted from the original GIFs to H.264 MP4 with a `yuv420p` pixel format and fast-start metadata for mobile playback.
 
 Each group has shared play/pause and replay buttons, along with individual video controls. Videos retain their original aspect ratios and playback speeds. The two comparison columns stay side by side on small screens. All three block views also stay in one row; on narrow screens, swipe horizontally within the block comparison to see all views at a readable size. This region can also be focused and scrolled with the keyboard. The header's Video link jumps to these comparisons.
 
-To replace a video, keep its filename or update the corresponding `<source>` path in `index.html`. The EE trajectory GIFs play automatically and independently of the rollout video controls. Legacy template media are not displayed.
+To replace a video, keep its filename or update the corresponding `<source>` path in `index.html`. The EE trajectory videos use muted, inline autoplay and loop independently of the rollout video controls. Each retains native controls so viewers can start playback if their browser blocks autoplay. Original GIFs and legacy template media are not displayed.
 
 ## Citation
 

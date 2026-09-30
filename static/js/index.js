@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.querySelectorAll("[data-comparison]").forEach((group) => {
-    const videos = Array.from(group.querySelectorAll("video"));
+    const videos = Array.from(group.querySelectorAll(".comparison-media video"));
     const toggle = group.querySelector(".comparison-toggle");
     const replay = group.querySelector(".comparison-replay");
     const status = group.querySelector(".comparison-status");
