@@ -98,34 +98,6 @@ a {
   border-radius: 6px;
 }
 
-.teaser .hero-body {
-  padding-top: 0;
-  padding-bottom: 3.5rem;
-}
-
-.teaser video {
-  display: block;
-  width: 100%;
-  max-height: 580px;
-  background: #0c1010;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-.teaser .subtitle {
-  max-width: 860px;
-  margin: 1.5rem auto 0;
-  color: #35403e;
-  font-family: "Google Sans", sans-serif;
-  line-height: 1.45;
-}
-
-.media-note {
-  margin-top: 0.75rem;
-  color: var(--muted);
-  font-size: 0.78rem;
-}
-
 .abstract-section {
   background: var(--soft);
 }
@@ -192,6 +164,153 @@ a {
   border-bottom: 1px solid var(--line);
 }
 
+.comparison-container {
+  max-width: 1200px;
+}
+
+.task-section > .comparison-container {
+  margin-top: 4rem;
+}
+
+.other-demos-section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+#video,
+#other-demos {
+  scroll-margin-top: 1.5rem;
+}
+
+.comparison-intro {
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.comparison-block {
+  padding: 2rem 0 2.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.comparison-block:first-of-type {
+  padding-top: 0;
+}
+
+.comparison-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.comparison-heading .title {
+  margin: 0;
+}
+
+.comparison-controls:not([hidden]) {
+  display: flex;
+  flex-shrink: 0;
+  gap: 0.5rem;
+}
+
+.comparison-controls .button {
+  border-color: var(--line);
+  border-radius: 5px;
+}
+
+.comparison-toggle {
+  color: var(--teal);
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: end;
+  gap: 2rem;
+}
+
+.block-comparison {
+  grid-template-columns: 1.5fr 1fr 1fr;
+}
+
+.comparison-item {
+  min-width: 0;
+}
+
+.comparison-label {
+  margin-bottom: 1rem;
+  color: #007faf;
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.latent-symbol {
+  display: inline-block;
+  margin-left: 0.2em;
+  font-family: "Castoro", serif;
+  font-style: italic;
+  white-space: nowrap;
+}
+
+.latent-symbol sub {
+  font-size: 0.7em;
+  font-style: normal;
+}
+
+.comparison-media {
+  position: relative;
+  background: #0c1010;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.comparison-media video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.focus-marker {
+  position: absolute;
+  bottom: 6%;
+  left: 29%;
+  width: 29%;
+  aspect-ratio: 1;
+  border: 2px solid #008fca;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.focus-marker::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  width: 145%;
+  border-top: 2px solid #008fca;
+  transform: rotate(14deg);
+  transform-origin: right center;
+}
+
+.detail-label {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.comparison-caption,
+.comparison-status {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
 .task-copy {
   padding-left: 2.5rem;
 }
@@ -214,9 +333,40 @@ a {
   object-fit: cover;
 }
 
-.results-section {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+.block-results {
+  padding-top: 3rem;
+  padding-bottom: 1rem;
+}
+
+.trajectory-comparison {
+  margin-top: 2rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--line);
+}
+
+.trajectory-comparison .title {
+  margin-bottom: 0.65rem;
+}
+
+.trajectory-description {
+  margin-bottom: 1.5rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.trajectory-media {
+  max-width: 360px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.trajectory-media img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .metric-row {
@@ -280,31 +430,6 @@ a {
   padding-left: 1.25rem;
 }
 
-.compact-heading {
-  margin-bottom: 1.5rem;
-}
-
-.results-carousel {
-  overflow: hidden;
-}
-
-.results-carousel .item {
-  margin: 5px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  font-size: 0;
-}
-
-.results-carousel video {
-  display: block;
-  width: 100%;
-  height: 320px;
-  margin: 0;
-  background: #0c1010;
-  object-fit: cover;
-}
-
 #BibTeX pre {
   padding: 1.5rem;
   overflow-x: auto;
@@ -363,7 +488,52 @@ a {
     height: 260px;
   }
 
-  .results-carousel video {
-    height: 250px;
+  .comparison-grid {
+    gap: 1rem;
+  }
+
+  .block-comparison {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .detail-item {
+    grid-column: 1 / -1;
+    width: min(100%, 520px);
+    margin: 0 auto 0.5rem;
+  }
+
+  .focus-marker::before {
+    display: none;
+  }
+
+  .comparison-label {
+    font-size: 1rem;
+  }
+
+  .comparison-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .task-section,
+  .other-demos-section {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .comparison-grid {
+    gap: 0.65rem;
+  }
+
+  .comparison-label {
+    min-height: 3rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .detail-label {
+    min-height: 0;
   }
 }

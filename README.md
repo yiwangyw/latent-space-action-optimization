@@ -26,10 +26,16 @@ Then open `http://localhost:8000`.
 
 ## Replace Videos
 
-The current video files are temporary assets retained from the source template. Replace the files in `static/videos/` while keeping the filenames used by `index.html`, or update the `<source>` paths in `index.html`.
+The Experiments section starts with **Real-world evaluation / Contact-rich block assembly**, followed by **Minimize smooth objectives**, the block assembly comparison, and its quantitative results. **Other demos** is a separate section for peg-in-hole and square block. Media are loaded from `static/videos/compare/`:
 
-- Hero video: `static/videos/teaser.mp4`
-- Gallery videos: `steve.mp4`, `chair-tp.mp4`, `shiba.mp4`, `fullbody.mp4`, and `blueshirt.mp4`
+- Block assembly: `bad_block.mp4` and `nice_block.mp4`, with `bad_block_withbigsize.mp4` as the random-sampling close-up.
+- Peg-in-hole: `bad_peg_in_hole.mp4` and `nice_peg_in_hole.mp4`.
+- Square block: `bad_square.mp4` and `nice_square.mp4`.
+- Square block EE trajectories: `bad_square_blocking_ee_down.gif` and `nice_square_blocking_ee_down.gif`. These animations show the top-down XY trajectories during the downward placement phase, beneath the corresponding rollout comparisons.
+
+Each group has shared play/pause and replay buttons, along with individual video controls. Videos retain their original aspect ratios and playback speeds. The two comparison columns stay side by side on small screens; the block close-up moves above them. The header's Video link jumps to these comparisons.
+
+To replace a video, keep its filename or update the corresponding `<source>` path in `index.html`. The EE trajectory GIFs play automatically and independently of the rollout video controls. Legacy template media are not displayed.
 
 ## Citation
 

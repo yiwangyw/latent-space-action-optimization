@@ -9,15 +9,12 @@
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/favicon.svg">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/index.js"></script>
+  <script defer src="./static/js/index.js"></script>
 </head>
 <body>
 
@@ -36,6 +33,7 @@
         <a class="navbar-item" href="#abstract">Abstract</a>
         <a class="navbar-item" href="#method">Method</a>
         <a class="navbar-item" href="#experiments">Experiments</a>
+        <a class="navbar-item" href="#other-demos">Other demos</a>
         <a class="navbar-item" href="#BibTeX">BibTeX</a>
       </div>
     </div>
@@ -85,20 +83,6 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="hero teaser" id="video">
-    <div class="container is-max-desktop">
-      <div class="hero-body">
-        <video id="teaser" autoplay muted loop playsinline controls preload="metadata">
-          <source src="./static/videos/teaser.mp4" type="video/mp4">
-        </video>
-        <h2 class="subtitle has-text-centered">
-          We optimize a compact latent code through a frozen, differentiable trajectory decoder to satisfy new task objectives while preserving feasibility learned from demonstrations.
-        </h2>
-        <p class="media-note has-text-centered">Temporary media retained from the source template.</p>
       </div>
     </div>
   </section>
@@ -185,72 +169,185 @@
         </div>
       </div>
     </div>
-  </section>
 
-  <section class="section results-section">
-    <div class="container is-max-desktop">
+    <div class="container comparison-container" id="video">
       <div class="has-text-centered section-heading">
-        <p class="eyebrow">Results</p>
-        <h2 class="title is-3">Feasibility is preserved while motion improves</h2>
+        <p class="eyebrow">Experiments</p>
+        <h2 class="title is-3">Minimize smooth objectives</h2>
+        <p class="comparison-intro">Optimize the latent code for smoother motion while preserving the constraints learned from demonstrations.</p>
       </div>
 
-      <div class="columns metric-row has-text-centered is-mobile is-multiline">
-        <div class="column is-half-mobile">
-          <p class="metric-value">99.3%</p>
-          <p class="metric-label">Approach</p>
-        </div>
-        <div class="column is-half-mobile">
-          <p class="metric-value">99.3%</p>
-          <p class="metric-label">Grasp</p>
-        </div>
-        <div class="column is-half-mobile">
-          <p class="metric-value">97.6%</p>
-          <p class="metric-label">Transport</p>
-        </div>
-        <div class="column is-half-mobile">
-          <p class="metric-value">97.0%</p>
-          <p class="metric-label">Insertion</p>
-        </div>
-      </div>
-
-      <div class="columns findings-row">
-        <div class="column is-5">
-          <div class="finding">
-            <p class="finding-value">14.61%</p>
-            <h3 class="title is-5">Lower insertion jerk</h3>
-            <p>Latent optimization suppresses spikes and oscillations in the most contact-sensitive phase.</p>
-          </div>
-          <div class="finding">
-            <p class="finding-value">10.84%</p>
-            <h3 class="title is-5">Lower acceleration</h3>
-            <p>The smoothness objective improves execution quality while decoded actions remain on the learned feasible manifold.</p>
+      <article class="comparison-block" aria-labelledby="block-title" data-comparison>
+        <div class="comparison-heading">
+          <h3 class="title is-4" id="block-title">Block assembly</h3>
+          <div class="comparison-controls" hidden>
+            <button class="button is-small comparison-toggle" type="button" aria-label="Play block assembly comparison">Play together</button>
+            <button class="button is-small comparison-replay" type="button" aria-label="Replay block assembly comparison">Replay</button>
           </div>
         </div>
-        <div class="column is-7">
-          <figure class="publication-figure result-figure">
-            <img src="./static/images/jerk-sensitivity.png" alt="Jerk reduction ratio as the jerk objective weight increases.">
-            <figcaption>Increasing the jerk weight consistently raises the fraction of objective-driven descent updates before the improvement saturates.</figcaption>
+        <div class="comparison-grid block-comparison">
+          <figure class="comparison-item detail-item">
+            <figcaption class="comparison-label detail-label">Random sampling · close-up</figcaption>
+            <div class="comparison-media">
+              <video width="1920" height="1080" controls muted playsinline preload="metadata" aria-label="Close-up of block assembly with random latent sampling">
+                <source src="./static/videos/compare/bad_block_withbigsize.mp4" type="video/mp4">
+              </video>
+            </div>
+          </figure>
+          <figure class="comparison-item">
+            <figcaption class="comparison-label">Random Sampling <span class="latent-symbol">z<sub>rand</sub></span></figcaption>
+            <div class="comparison-media block-overview">
+              <video width="640" height="480" controls muted playsinline preload="metadata" aria-label="Block assembly with random latent sampling">
+                <source src="./static/videos/compare/bad_block.mp4" type="video/mp4">
+              </video>
+              <span class="focus-marker" aria-hidden="true"></span>
+            </div>
+          </figure>
+          <figure class="comparison-item optimized-item">
+            <figcaption class="comparison-label">Optimizing <span class="latent-symbol">z<sup>*</sup></span></figcaption>
+            <div class="comparison-media">
+              <video width="640" height="480" controls muted playsinline preload="metadata" aria-label="Block assembly with optimized latent code">
+                <source src="./static/videos/compare/nice_block.mp4" type="video/mp4">
+              </video>
+            </div>
           </figure>
         </div>
-      </div>
+        <p class="comparison-caption">The close-up highlights the contact region in the random-sampling rollout.</p>
+        <p class="comparison-status" role="status" hidden></p>
+      </article>
     </div>
+
+    <section class="block-results" aria-labelledby="block-results-title">
+      <div class="container is-max-desktop">
+        <div class="has-text-centered section-heading">
+          <p class="eyebrow">Block assembly results</p>
+          <h2 class="title is-3" id="block-results-title">Feasibility is preserved while motion improves</h2>
+        </div>
+
+        <div class="columns metric-row has-text-centered is-mobile is-multiline">
+          <div class="column is-half-mobile">
+            <p class="metric-value">99.3%</p>
+            <p class="metric-label">Approach</p>
+          </div>
+          <div class="column is-half-mobile">
+            <p class="metric-value">99.3%</p>
+            <p class="metric-label">Grasp</p>
+          </div>
+          <div class="column is-half-mobile">
+            <p class="metric-value">97.6%</p>
+            <p class="metric-label">Transport</p>
+          </div>
+          <div class="column is-half-mobile">
+            <p class="metric-value">97.0%</p>
+            <p class="metric-label">Insertion</p>
+          </div>
+        </div>
+
+        <div class="columns findings-row">
+          <div class="column is-5">
+            <div class="finding">
+              <p class="finding-value">14.61%</p>
+              <h3 class="title is-5">Lower insertion jerk</h3>
+              <p>Latent optimization suppresses spikes and oscillations in the most contact-sensitive phase.</p>
+            </div>
+            <div class="finding">
+              <p class="finding-value">10.84%</p>
+              <h3 class="title is-5">Lower acceleration</h3>
+              <p>The smoothness objective improves execution quality while decoded actions remain on the learned feasible manifold.</p>
+            </div>
+          </div>
+          <div class="column is-7">
+            <figure class="publication-figure result-figure">
+              <img src="./static/images/jerk-sensitivity.png" alt="Jerk reduction ratio as the jerk objective weight increases.">
+              <figcaption>Increasing the jerk weight consistently raises the fraction of objective-driven descent updates before the improvement saturates.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
   </section>
 
-  <section class="hero is-light is-small video-gallery" aria-label="Video gallery">
-    <div class="hero-body">
-      <div class="container">
-        <div class="has-text-centered section-heading compact-heading">
-          <h2 class="title is-3">Video Gallery</h2>
-          <p class="media-note">Temporary media retained from the Nerfies template for later replacement.</p>
-        </div>
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="item"><video autoplay controls muted loop playsinline preload="metadata"><source src="./static/videos/steve.mp4" type="video/mp4"></video></div>
-          <div class="item"><video autoplay controls muted loop playsinline preload="metadata"><source src="./static/videos/chair-tp.mp4" type="video/mp4"></video></div>
-          <div class="item"><video autoplay controls muted loop playsinline preload="metadata"><source src="./static/videos/shiba.mp4" type="video/mp4"></video></div>
-          <div class="item"><video autoplay controls muted loop playsinline preload="metadata"><source src="./static/videos/fullbody.mp4" type="video/mp4"></video></div>
-          <div class="item"><video autoplay controls muted loop playsinline preload="metadata"><source src="./static/videos/blueshirt.mp4" type="video/mp4"></video></div>
-        </div>
+  <section class="section other-demos-section" id="other-demos" aria-labelledby="other-demos-title">
+    <div class="container comparison-container">
+      <div class="has-text-centered section-heading">
+        <h2 class="title is-3" id="other-demos-title">Other demos</h2>
       </div>
+
+      <article class="comparison-block" aria-labelledby="peg-title" data-comparison>
+        <div class="comparison-heading">
+          <h3 class="title is-4" id="peg-title">Peg-in-hole</h3>
+          <div class="comparison-controls" hidden>
+            <button class="button is-small comparison-toggle" type="button" aria-label="Play peg-in-hole comparison">Play together</button>
+            <button class="button is-small comparison-replay" type="button" aria-label="Replay peg-in-hole comparison">Replay</button>
+          </div>
+        </div>
+        <div class="comparison-grid">
+          <figure class="comparison-item">
+            <figcaption class="comparison-label">Random Sampling <span class="latent-symbol">z<sub>rand</sub></span></figcaption>
+            <div class="comparison-media">
+              <video width="1280" height="720" controls muted playsinline preload="metadata" aria-label="Peg-in-hole with random latent sampling">
+                <source src="./static/videos/compare/bad_peg_in_hole.mp4" type="video/mp4">
+              </video>
+            </div>
+          </figure>
+          <figure class="comparison-item optimized-item">
+            <figcaption class="comparison-label">Optimizing <span class="latent-symbol">z<sup>*</sup></span></figcaption>
+            <div class="comparison-media">
+              <video width="1920" height="1080" controls muted playsinline preload="metadata" aria-label="Peg-in-hole with optimized latent code">
+                <source src="./static/videos/compare/nice_peg_in_hole.mp4" type="video/mp4">
+              </video>
+            </div>
+          </figure>
+        </div>
+        <p class="comparison-status" role="status" hidden></p>
+      </article>
+
+      <article class="comparison-block" aria-labelledby="square-title" data-comparison>
+        <div class="comparison-heading">
+          <h3 class="title is-4" id="square-title">Square block</h3>
+          <div class="comparison-controls" hidden>
+            <button class="button is-small comparison-toggle" type="button" aria-label="Play square block comparison">Play together</button>
+            <button class="button is-small comparison-replay" type="button" aria-label="Replay square block comparison">Replay</button>
+          </div>
+        </div>
+        <div class="comparison-grid">
+          <figure class="comparison-item">
+            <figcaption class="comparison-label">Random Sampling <span class="latent-symbol">z<sub>rand</sub></span></figcaption>
+            <div class="comparison-media">
+              <video width="1920" height="1080" controls muted playsinline preload="metadata" aria-label="Square block task with random latent sampling">
+                <source src="./static/videos/compare/bad_square.mp4" type="video/mp4">
+              </video>
+            </div>
+          </figure>
+          <figure class="comparison-item optimized-item">
+            <figcaption class="comparison-label">Optimizing <span class="latent-symbol">z<sup>*</sup></span></figcaption>
+            <div class="comparison-media">
+              <video width="1920" height="1080" controls muted playsinline preload="metadata" aria-label="Square block task with optimized latent code">
+                <source src="./static/videos/compare/nice_square.mp4" type="video/mp4">
+              </video>
+            </div>
+          </figure>
+        </div>
+        <div class="trajectory-comparison" aria-labelledby="trajectory-title">
+          <h4 class="title is-5" id="trajectory-title">EE trajectories · top-down view</h4>
+          <p class="trajectory-description">End-effector (EE) trajectories in the XY plane as the arm descends to place the square block.</p>
+          <div class="comparison-grid trajectory-grid">
+            <figure class="comparison-item">
+              <figcaption class="comparison-label">Random Sampling <span class="latent-symbol">z<sub>rand</sub></span></figcaption>
+              <div class="trajectory-media">
+                <img src="./static/videos/compare/bad_square_blocking_ee_down.gif" width="240" height="240" loading="lazy" alt="Animated top-down EE trajectory in the XY plane during square block placement with random latent sampling.">
+              </div>
+            </figure>
+            <figure class="comparison-item optimized-item">
+              <figcaption class="comparison-label">Optimizing <span class="latent-symbol">z<sup>*</sup></span></figcaption>
+              <div class="trajectory-media">
+                <img src="./static/videos/compare/nice_square_blocking_ee_down.gif" width="240" height="240" loading="lazy" alt="Animated top-down EE trajectory in the XY plane during square block placement with an optimized latent code.">
+              </div>
+            </figure>
+          </div>
+        </div>
+        <p class="comparison-status" role="status" hidden></p>
+      </article>
     </div>
   </section>
 
