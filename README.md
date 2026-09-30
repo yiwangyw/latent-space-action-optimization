@@ -18,6 +18,8 @@ python -m http.server 8000
 
 Then open `http://localhost:8000`.
 
+The custom stylesheet and script URLs in `index.html` include a `?v=` content version so returning visitors load the matching assets after an update. When editing `static/css/index.css` or `static/js/index.js`, update the corresponding version in `index.html` before publishing.
+
 ## Publish with GitHub Pages
 
 1. Create a GitHub repository and push this folder to its default branch.
